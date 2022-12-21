@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+/* MENÜ BAŞLANGIÇ */
+
+#mySidenav a {
+    position: fixed;
+    margin-top: 150px;
+    z-index: 2;
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    color: white;
+    border-radius: 0 5px 5px 0;
+  }
+  
+  #mySidenav a:hover {
+    left: 0;
+  }
+  
+  #about {
+    top: 20px;
+    background-color: #04AA6D;
+  }
+  
+  #blog {
+    top: 80px;
+    background-color: #2196F3;
+  }
+  
+  #projects {
+    top: 140px;
+    background-color: #f44336;
+  }
+  
+  #contact {
+    top: 200px;
+    background-color: #555
+  }
+/* MENÜ BİTİŞ */
+
+  /* ARKA PLAN VİDEO */
+
+
+  * {	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {	font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+  }
+  
+  h1 {	font-weight: 300;
+    font-size: 50px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+  
+  /* Giriş Bölümü */
+  .intro {	height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+  }
+  /* Giriş Bölümü Bitiş */
+  
+  /* Video Konumlandırma */
+  .video-container {	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #333;
+  }
+  .video-container video {
+      min-width: 100%;
+    min-height: 100%;
+      position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+  /* Video Konumlandırma Bitiş */
+  
+  /* Karartma Efekti */
+  .video-container:after {	
+      content: '';
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+  }
+  /* Karartma Efekti Bitiş */
+  
+  .content {	
+      z-index: 2;
+  }
+  
+  .read-more {	
+      display: inline-block;
+    padding: 10px 30px;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    border: solid #fff 1px;
+    margin-top: 175px;
+    opacity: 0.8;
+      transition: .2s all;
+      text-decoration: none;
+  }
+  
+  .read-more:hover {	transform: scale(.9);
+  }
+  
+  /* İçerik (Opsiyonel) */
+  #page {
+    font-size: 1.4rem;	
+    padding: 40px;
+    text-align: center;
+  }
+  #page h1 {
+    font-family: 'Rubik Vinyl', cursive;
+  }
+  
+  #page p {	
+  
+    font-size: 1.4rem;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  /* ARKA PLAN VİDEO BİTİŞ */
+
+  /* FOOTER BAŞLANGIÇ*/
+  .site-footer
+{
+  background-color:#26272b;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+}
+
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  margin-bottom: 10px;
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px;
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+/*FOOTER BİTİŞ*/

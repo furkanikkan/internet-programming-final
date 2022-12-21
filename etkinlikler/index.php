@@ -18,9 +18,9 @@
         <div id="mySidenav" class="sidenav">
             <a href="#" id="Anasayfa">Anasayfa</a>
             <a href="#" id="Etkinlikler">Etkinlikler</a>
-            <a href="#" id="Giriş">Giriş</a>
-            <a href="#" id="Başvurular">Başvurular</a>
-            <a href="#" id="İletişim">İletişim</a>
+            <a href="#" id="Giris">Giriş</a>
+            <a href="#" id="Basvurular">Başvurular</a>
+            <a href="#" id="İletisim">İletişim</a>
         </div>
 
         <a href="#" class="logo">
@@ -40,7 +40,7 @@
         <br><br>
             <form action="/action_page.php" style="font-family: 'Shadows Into Light', cursive;">
                 <label for="etkinlikler">Etkinlikler:</label>
-                <select name="cars" id="cars">
+                <select name="menu" id="menu">
                     <option value="konser">konser</option>
                     <option value="tiyatro">tiyatro</option>
                     <option value="sinema">sinema</option>

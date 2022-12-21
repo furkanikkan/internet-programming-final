@@ -19,23 +19,28 @@
     left: 0;
   }
   
-  #about {
+  #Anasayfa {
     top: 20px;
     background-color: #04AA6D;
   }
-  
-  #blog {
+
+  #Etkinlikler {
     top: 80px;
+    background-color: #a2dc6c;
+  }
+  #Giris {
+    top: 140px;
     background-color: #2196F3;
   }
+
   
-  #projects {
-    top: 140px;
+  #Basvurular {
+    top: 200px;
     background-color: #f44336;
   }
   
-  #contact {
-    top: 200px;
+  #İletisim {
+    top: 260px;
     background-color: #555
   }
 /* MENÜ BİTİŞ */
@@ -254,6 +259,7 @@
   font-size:13px;
 }
 .social-icons a{
+  bottom:4px;
   background-color:#eceeef;
   color:#818a91;
   font-size:16px;

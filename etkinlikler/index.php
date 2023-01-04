@@ -1,94 +1,1364 @@
-<html>
+﻿<?php include("header.php"); ?>
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Etkinlikler</title>
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/083f0ce600.js" crossorigin="anonymous"></script>
-</head>
+<main>
+    <div class="main-section">
+        <div class="container">
+            <div class="row">
+                <div class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+                    <div class="center-section">
+                        <div class="main-tabs">
 
-<body>
-    <div class="container">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="tab-top">
+                                    <div class="main-posts">
+                                        <div class="row">
+                                            <!-- EVENTLER BÖLÜMÜ -->
+                                            <p>Toplamda <strong><?php echo $say; ?></strong> etkinlik listelendi.</p>
+                                            <?php 
+                                            foreach($etkinlikler->fetchAll() as $etkinlik){ 
+                                            ?>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.php">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/etkinlik/<?php echo $etkinlik["etkinlikImage"]; ?>"
+                                                                alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span
+                                                            class="event-time"><?php echo $etkinlik["tarih"]; ?></span>
+                                                        <a href="event_detail_view.php"
+                                                            class="event-title"><?php echo $etkinlik["etkinlikBaslik"]; ?></a>
+                                                        <span
+                                                            class="event-type"><?php echo $etkinlik["il"]; ?>/<?php echo $etkinlik["ilce"]; ?></span>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i class=""></i><a
+                                                                    href="database/biletSatis.php?etkinlikID=<?php echo $etkinlik["etkinlikID"]; ?>">Sepete
+                                                                    Ekle</a></button>
 
-        <div id="mySidenav" class="sidenav">
-            <a href="#" id="Anasayfa">Anasayfa</a>
-            <a href="#" id="Etkinlikler">Etkinlikler</a>
-            <a href="#" id="Giris">Giriş</a>
-            <a href="#" id="Basvurular">Başvurular</a>
-            <a href="#" id="İletisim">İletişim</a>
-        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php } ?>
 
-        <a href="#" class="logo">
-            <img src="images/logo.png" alt="logo">
-        </a>
+                                            <div class="col-md-12">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab-local">
+                                    <div class="main-posts">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-1.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Ludhiana</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-2.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-3.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Location</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-4.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-5.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-6.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-7.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Location</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-8.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Location</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="loading-btn">
+                                                    <button class="process-btn btn-hover" type="button">
+                                                        <i class="fa-solid fa-spinner fa-spin"></i>
+                                                        Loading...
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab-this-week">
+                                    <div class="main-posts">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-1.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Ludhiana</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-2.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-3.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Location</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-4.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-5.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-6.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-7.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Location</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-8.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Location</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-        <section class="intro">
-            <div class="video-container">
-                <video src="assets/videos/video.mp4" autoplay loop playsinline muted></video>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab-classes">
+                                    <div class="main-posts">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-2.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-5.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-6.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-8.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Location</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="loading-btn">
+                                                    <button class="process-btn btn-hover" type="button">
+                                                        No More
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab-friends">
+                                    <div class="full-width">
+                                        <div class="no-events">
+                                            <div class="no-event-icon">
+                                                <img src="images/icon-calendar.png" alt="">
+                                            </div>
+                                            <span>No events found.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab-online">
+                                    <div class="main-posts">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-2.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-4.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="event-main-post">
+                                                    <div class="main-photo">
+                                                        <a href="event_detail_view.html">
+                                                            <div class="photo-overlay"></div>
+                                                            <img src="images/homepage/center/post-img-5.jpg" alt="">
+                                                        </a>
+                                                        <div class="option-ellipsis">
+                                                            <div class="dropdown">
+                                                                <a class="ellipsis-btn dropdown-toggle-no-caret"
+                                                                    href="#" role="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false"><i
+                                                                        class="fas fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-eye-off icon-mr1"></i>Hide</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-bookmark icon-mr1"></i>Save</a>
+                                                                    <a class="post-link-item" href="#"><i
+                                                                            class="feather-user icon-mr1"></i>User
+                                                                        Profile</a>
+                                                                    <a class="post-link-item" href="#"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#reportModal"><i
+                                                                            class="feather-flag icon-mr1"></i>Report</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="event-body">
+                                                        <span class="event-time">thu,30 june 2022 at 3.00 pm</span>
+                                                        <a href="event_detail_view.html" class="event-title">Event Title
+                                                            Here</a>
+                                                        <span class="event-type">Online</span>
+                                                        <p class="ingo-counter">
+                                                            <span>25 Interested</span>
+                                                            <span>11 Going</span>
+                                                        </p>
+                                                        <div class="group-btns">
+                                                            <button class="interest-btn btn-hover"><i
+                                                                    class="feather-star me-2"></i>Interested</button>
+                                                            <button class="share-btn btn-hover" data-bs-toggle="modal"
+                                                                data-bs-target="#shareModal"><i
+                                                                    class="feather-share-2"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="loading-btn">
+                                                    <button class="process-btn btn-hover" type="button">
+                                                        No More
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab-following">
+                                    <div class="full-width">
+                                        <div class="no-events">
+                                            <div class="no-event-icon">
+                                                <img src="images/icon-calendar.png" alt="">
+                                            </div>
+                                            <span>No events found.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-12">
+
+                    <?php
+
+                if (isset($_SESSION["kullaniciAdi"])) {
+                    ?>
+
+                    <div class="main-left-sidebar mt-5 mt-lg-5 mt-xl-0">
+                        <div class="user-data full-width">
+                            <div class="user-profile">
+                                <div class="username-dt dpbg-1">
+                                    <div class="usr-pic">
+                                        <img src="images/profil/<?php echo $kullanici["profilResmi"]; ?>">
+                                    </div>
+                                </div>
+                                <div class="user-main-details">
+                                    <h4><?php echo $kullanici["ad"] . " " . $kullanici["soyad"]; ?></h4>
+                                </div>
+                                <div class="followers-dt-sm">
+                                    <h4>Bakiye</h4>
+                                    <span><?php echo $kullanici["bakiye"] . " TL"; ?></span>
+                                </div>
+                                <div class="profile-link">
+                                    <a href="my_profile.php">Profilim</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-data full-width">
+
+                        </div>
+
+                    </div>
+                    <?php } ?>
+
+                </div>
+                <div class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-12">
+                    <div class="right-side-items mt-0 mt-md-5 mt-lg-5 mt-xl-0">
+
+                        <div class="explore-events">
+                            <h4>Explore Events</h4>
+                            <div class="explore-events-dt">
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <a href="#">
+                                            <div class="explore-card light-blue">
+                                                <div class="explore-item-1">
+                                                    <div class="explore-icon-bg icon-large-1">
+                                                        <i class="fas fa-sun"></i>
+                                                    </div>
+                                                    <div class="explore-content">
+                                                        <i class="feather-sun"></i>
+                                                        <span>Today</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="#">
+                                            <div class="explore-card light-yellow">
+                                                <div class="explore-item-1">
+                                                    <div class="explore-icon-bg icon-large-1">
+                                                        <i class="feather-sun"></i>
+                                                    </div>
+                                                    <div class="explore-content">
+                                                        <i class="feather-sun"></i>
+                                                        <span>Tomorrow</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="#">
+                                            <div class="explore-card dark-blue">
+                                                <div class="explore-item-1">
+                                                    <div class="explore-icon-bg icon-large-1">
+                                                        <i class="feather-calendar"></i>
+                                                    </div>
+                                                    <div class="explore-content">
+                                                        <i class="feather-calendar"></i>
+                                                        <span>This Week</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="#">
+                                            <div class="explore-card light-green">
+                                                <div class="explore-item-1">
+                                                    <div class="explore-icon-bg icon-large-1">
+                                                        <i class="fas fa-calendar-check"></i>
+                                                    </div>
+                                                    <div class="explore-content">
+                                                        <i class="feather-calendar"></i>
+                                                        <span>Choose Date</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <?php
+                           $weatherApi = file_get_contents("http://api.weatherapi.com/v1/current.json?key=ce71800cf15a4907817204818230301&q=Istanbul&aqi=no");
+                           $jsonDecoded = json_decode($weatherApi); 
+                                                
+                        ?>
+                        <div class="w-weather">
+                            <div class="weather-top">
+                                <div class="weather-left">
+                                    <div class="weather-city"><?php echo $jsonDecoded->location->name; ?></div>
+                                    <div class="week-text"><?php echo $jsonDecoded->location->tz_id; ?></div>
+                                    <div class="week-text"><?php echo $jsonDecoded->location->localtime; ?></div>
+                                    <div class="week-text" style="font-size: 18px;"> H.S:
+                                        <?php echo $jsonDecoded->current->feelslike_c; ?>°</div>
+
+                                </div>
+                                <div class="weather-right">
+                                    <img src="<?php echo $jsonDecoded->current->condition->icon; ?>" alt="">
+                                    <span><?php echo $jsonDecoded->current->temp_c; ?>°</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
-            <div class="content">
-                <a href="#page" class="read-more">Keşfet</a>
-            </div>
-        </section>
-        <section id="page">
-        <h1>Dün, bugün ve yarınlar için eğlenmeye hazır mısın?</h1>
-        <br><br>
-            <form action="/action_page.php" style="font-family: 'Shadows Into Light', cursive;">
-                <label for="etkinlikler">Etkinlikler:</label>
-                <select name="menu" id="menu">
-                    <option value="konser">konser</option>
-                    <option value="tiyatro">tiyatro</option>
-                    <option value="sinema">sinema</option>
-                    <option value="geziler">geziler</option>
-                </select>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label for="etkinlikTarihi">Etkinlik Tarihi:</label>
-                <input id="etkinlikTarihi" type="date">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label for="cars">Yerler:</label>
-                <select name="cars" id="cars">
-                    <option value="tumTurkiye">Tüm Türkiye</option>
-                    <option value="balikesir">Balıkesir</option>
-                    <option value="istanbul">İstanbul</option>
-                    <option value="kutahya">Kütahya</option>
-                </select>
-                &nbsp;&nbsp;
-                <input type="submit" value="      Ara     ">
-            </form>
-        </section>
-    </div>
-    <!-- Footer Başlangıç -->
-     <footer class="site-footer">
-      <div class="container">
-        <div class="row">
         </div>
-        <hr>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
-         <a href="#">Scanfcode</a>.
-            </p>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter"  href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
-            </ul>
-          </div>
-        </div>
-      </div>
-</footer>
-<!--Footer Bitiş-->
+</main>
 
 
-</body>
-</html>
+<?php include("footer.php") ?>
